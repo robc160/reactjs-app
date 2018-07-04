@@ -4,20 +4,47 @@ import './index.css';
 
 class Series extends Component {
 		state = {
-    	series: []
+    	series: [],
+			seriesName: '',
+			isFetching: false
   	};
 
 		onSeriesInputChange = e =>{
+			this.setState({seriesName: e.target.value, isFetching: true})
 			fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
       	.then((response) => response.json())
-      	.then(json => this.setState({series: json}))
+      	.then(json => this.setState({series: json, isFetching: false}))
 		};
 		render() {
 			return (
 				<div>
-					The length of series array: {this.state.series.length}
-					<input type="text" onChange={this.onSeriesInputChange} />
-	        <SeriesList list = {this.state.series} />
+					<div>
+						<input
+								type="text"
+								value={this.state.seriesName}
+								onChange={this.onSeriesInputChange}
+					  />
+				</div>
+					{
+						this.state.series.length === 0 && this.state.seriesName.trim() === ''
+						&&
+						<p>Please enter the series name.</p>
+					}
+					{
+						this.state.series.length === 0 && this.state.seriesName.trim() !== ''
+						&&
+						<p>Not found.</p>
+					}
+					{
+						this.state.isFetching
+						&&
+						<p>Loading...</p>
+					}
+					{
+						!this.state.isFetching
+						&&
+						<SeriesList list = {this.state.series} />
+					}
 	      </div>
 			);
 		};
