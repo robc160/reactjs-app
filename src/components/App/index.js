@@ -3,7 +3,7 @@ import Intro from '../Intro';
 import Series from '../../containers/Series';
 import logo from '../../logo.png';
 import './App.css';
-import './custom.css';
+import './index.css';
 import 'whatwg-fetch';
 
 class App extends Component {
