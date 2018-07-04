@@ -26,12 +26,12 @@ class Series extends Component {
 					  />
 				</div>
 					{
-						this.state.series.length === 0 && this.state.seriesName.trim() === ''
+						!this.state.isFetching  && this.state.series.length === 0 && this.state.seriesName.trim() === ''
 						&&
 						<p>Please enter the series name.</p>
 					}
 					{
-						this.state.series.length === 0 && this.state.seriesName.trim() !== ''
+					 !this.state.isFetching  &&	 this.state.series.length === 0 && this.state.seriesName.trim() !== ''
 						&&
 						<p>Not found.</p>
 					}
