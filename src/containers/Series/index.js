@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Main from '../../components/Main';
+import Intro from '../../components/Intro';
 import SeriesList from '../../components/SeriesList';
 import Loader from '../../components/Loader';
 import './index.css';
@@ -10,15 +12,17 @@ class Series extends Component {
 			isFetching: false
   	};
 
-		onSeriesInputChange = e =>{
-			this.setState({seriesName: e.target.value, isFetching: true})
-			fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
-      	.then((response) => response.json())
-      	.then(json => this.setState({series: json, isFetching: false}))
+		onSeriesInputChange = e => {
+				this.setState({seriesName: e.target.value, isFetching: true})
+				fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
+	      	.then((response) => response.json())
+	      	.then(json => this.setState({series: json, isFetching: false}))
 		};
+
 		render() {
 			return (
 				<div>
+					<Intro message="Here you can find all of your most loved series" />
 					<div>
 						<input
 								type="text"
