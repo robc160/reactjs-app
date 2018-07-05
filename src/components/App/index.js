@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Main from '../Main';
-import logo from '../../logo.png';
+import logo from '../../assets/logo-light.svg';
 import './App.css';
 import './index.css';
 import 'whatwg-fetch';
@@ -14,7 +14,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <Main />
-        <Series />
       </div>
     );
   }
