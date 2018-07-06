@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Main from '../../components/Main';
+//import Main from '../../components/Main';
 import Intro from '../../components/Intro';
 import SeriesList from '../../components/SeriesList';
 import Loader from '../../components/Loader';

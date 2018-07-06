@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 const SeriesListItem = function( {series} ){
 		return (
 			<li>
-				{series.show.name}
+				<Link to={`/series/${series.show.id}`}>
+					{series.show.name}
+				</Link>
 			</li>
 		)};
 

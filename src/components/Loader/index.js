@@ -7,7 +7,7 @@ const Loader = function(props){
     <div>
       <img
         className="loader"
-        alt="loader image"
+        alt=""
         src={loaderSrc}
       />
     </div>
